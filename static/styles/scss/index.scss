@@ -1,0 +1,42 @@
+@import "consts";
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    z-index: -10;
+    position: relative;
+}
+
+@import "partials/header";
+
+main {
+    min-height: calc(100vh - #{$header-h});
+    width: 100vw;
+    background-image: url("../../assets/banner.jpg");
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    z-index: -2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background: rgba($color: black, $alpha: 0.2);
+    z-index: -1;
+}
+
+@import "partials/form_box";
+
+@import "./partials/forms";

@@ -1,0 +1,39 @@
+{% load static %}
+
+<div class="box">
+    <div class="box__btn-box">
+        <div id="box__btn" class="log-in"></div>
+        <button type="button" class="box__toggle" onclick="login()">
+            Log In
+        </button>
+        <button type="button" class="box__toggle" onclick="register()">
+            Register
+        </button>
+    </div>
+
+    <form action="" method="" id="login" class="input-group main">
+        <h3>Faça seu login:</h3>
+        {% for item in login %}
+        {{ item }}
+        {% endfor %}
+        <button type="submit" class="submit-btn">Log In</button>
+    </form>
+
+    <form action="" method="" id="register" class="input-group off">
+        <h3>Faça seu Registro:</h3>
+
+        {% for item in reg %}
+        {{ item }}
+        {% endfor %}
+        <input type="password" name="password2" placeholder="Comfirme a senha" class="input-field" maxlength="128"
+            id="id_password2">
+
+        <!-- <input type="text" class="input-field" placeholder="User Id" required>
+        <input type="text" class="input-field" placeholder="Email" required>
+
+        <input type="password" class="input-field" placeholder="Password" required>
+        <input type="password" class="input-field" placeholder="Comfirm Password" required> -->
+
+        <button type="submit" class="submit-btn">Register</button>
+    </form>
+</div>

@@ -1,0 +1,16 @@
+// SIZES
+
+$header-h: 55px;
+$box-form-w: 380px;
+$box-form-h: 480px;
+
+// COLORS
+$title-color: #ff6a30;
+$header-gradient: linear-gradient(
+    to right,
+    rgb(255, 255, 255),
+    rgb(243, 243, 243)
+);
+$main-gradient: $header-gradient;
+$gradient-right: linear-gradient(to right, #ff6a30, #ffad06);
+$gradient-bottom: linear-gradient(to bottom, #ff6a30, #ffad06);

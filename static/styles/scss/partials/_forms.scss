@@ -1,0 +1,76 @@
+.input-group {
+    top: 150px;
+    position: absolute;
+    width: 100%;
+    transition: 0.5s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h3 {
+        font-family: "Poppins", sans-serif;
+        margin-bottom: 10px;
+        font-weight: 500;
+    }
+
+    .input-field {
+        width: 80%;
+        padding: 10px 0;
+        margin: 5px 0;
+        border-inline: 0;
+        border-top: 0;
+        border-bottom: 1px solid #999;
+        outline: none;
+        background: transparent;
+    }
+    .submit-btn {
+        width: 60%;
+        padding: 12px 30px;
+        cursor: pointer;
+        display: block;
+        margin: auto;
+        background: $gradient-right;
+        border: 0;
+        outline: none;
+        border-radius: 30px;
+        font-weight: bold;
+        margin-block: 30px;
+        font-size: 18px;
+    }
+    .container {
+        display: flex;
+        align-items: center;
+
+        .checkbox {
+            margin: 15px 10px 15px 0;
+        }
+
+        span {
+            color: #777;
+            font-size: 12px;
+            bottom: 68px;
+            display: block;
+            line-height: 25px;
+            // position: absolute;
+        }
+    }
+}
+
+#login {
+    &.main {
+        left: 0px;
+    }
+
+    &.off {
+        left: -360px;
+    }
+}
+
+#register {
+    &.main {
+        left: 0px;
+    }
+    &.off {
+        left: 400px;
+    }
+}

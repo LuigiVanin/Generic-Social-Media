@@ -1,0 +1,4 @@
+__pycacahe__/
+venv/
+db.sqlite3
+.vscode/

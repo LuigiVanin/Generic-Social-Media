@@ -1,0 +1,38 @@
+header {
+    width: 100vw;
+    height: $header-h;
+    background: $header-gradient;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    /* offset-x | offset-y | blur-radius | spread-radius | color */
+    box-shadow: 0px -1px 15px 5px rgba(0, 0, 0, 0.212);
+
+    a::after {
+        content: "";
+        width: 0;
+        height: 4px;
+        position: absolute;
+        left: 50%;
+        bottom: -13px;
+        background: $gradient-right;
+        border-radius: 4px;
+        transition: all 0.35s;
+    }
+
+    a:hover::after {
+        left: -5px;
+        width: calc(100% + 10px);
+    }
+
+    a.title {
+        text-decoration: none;
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        font-size: 1.2rem;
+        color: $title-color;
+        letter-spacing: 1px;
+        position: relative;
+    }
+}
