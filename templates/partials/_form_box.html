@@ -11,7 +11,8 @@
         </button>
     </div>
 
-    <form action="" method="" id="login" class="input-group main">
+    <form action="{% url 'login' %}" method="POST" id="login" class="input-group main">
+        {% csrf_token %}
         <h3>Faça seu login:</h3>
         {% for item in login %}
         {{ item }}
@@ -19,7 +20,8 @@
         <button type="submit" class="submit-btn">Log In</button>
     </form>
 
-    <form action="" method="" id="register" class="input-group off">
+    <form action="{% url 'reg' %}" method="POST" id="register" class="input-group off">
+        {% csrf_token %}
         <h3>Faça seu Registro:</h3>
 
         {% for item in reg %}
