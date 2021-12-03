@@ -7,6 +7,8 @@ from .models import User
 
 def login_reg(request: HttpRequest) -> HttpResponse:
     if request.method == 'GET':
+        if request.user.is_authenticated:
+            return redirect('profile')
         
         login_form = LoginForm()
         register_form = RegisterForm()
@@ -31,6 +33,8 @@ def login_reg(request: HttpRequest) -> HttpResponse:
         
         if user is not None:
             auth.login(request, user)
+            return redirect('profile')
+        else:
             return redirect('login')
     
         
@@ -50,10 +54,23 @@ def registration(request: HttpRequest) -> HttpResponse:
             user.save()
             return redirect('login')
 
-
-# @login_required('login')
-# def profile(request: HttpRequest) -> HttpResponse:
-#     pass
+@login_required(login_url='login')
+def profile(request: HttpRequest) -> HttpResponse:
+    if request.method == "GET":
+            
+        print(request.user.is_authenticated)
+        
+        user = User.objects.filter(id=request.user.id).first()
+        ctx = {
+            "data": user
+        }
+        
+        return render(
+            request,
+            "profile.html",
+            context=ctx,
+            status=200
+        )
 
 def logout(request: HttpRequest) -> HttpResponse:
     if request.user.is_authenticated:

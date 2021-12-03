@@ -3,6 +3,19 @@
 
 <header>
 
-    <a href="#" class="title">Login & Registration </a>
+    {% if user.is_authenticated %}
+    <form action="#" method="get" class="search-wrapper">
+        <!-- <button type="submit"> -->
+        <i class="fas fa-search" class="search-button"></i>
+        <!-- </button> -->
+        <input type="search" name="search" id="search" placeholder="Busca...">
+    </form>
+    {% endif %}
+
+    <a href="#" id="title">Login & Registration </a>
+
+    {% if user.is_authenticated %}
+    <a class='item' href="{% url 'logout' %}">Log Out</a>
+    {% endif %}
 
 </header>

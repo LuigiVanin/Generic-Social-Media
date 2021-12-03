@@ -28,7 +28,7 @@ header {
           box-shadow: 0px -1px 15px 5px rgba(0, 0, 0, 0.212);
 }
 
-header a::after {
+header a#title::after {
   content: "";
   width: 0;
   height: 4px;
@@ -42,12 +42,12 @@ header a::after {
   transition: all 0.35s;
 }
 
-header a:hover::after {
+header a#title:hover::after {
   left: -5px;
   width: calc(100% + 10px);
 }
 
-header a.title {
+header a#title {
   text-decoration: none;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
@@ -55,6 +55,72 @@ header a.title {
   color: #ff6a30;
   letter-spacing: 1px;
   position: relative;
+}
+
+header a.item {
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  color: black;
+  position: relative;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+header a.item:hover {
+  color: #ff6a30;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+header input#search {
+  width: 130px;
+  position: absolute;
+  font-size: 1.1rem;
+  padding-block: 8px;
+  -webkit-padding-start: 10px;
+          padding-inline-start: 10px;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 6px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+header input#search:focus {
+  width: 200px;
+  background-color: rgba(0, 0, 0, 0.08);
+}
+
+header .search-wrapper {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+}
+
+header .search-wrapper i {
+  color: #ff6a30;
+  position: absolute;
+  left: -40px;
+  font-size: 1.35rem;
+  cursor: pointer;
+  padding: 7px;
+  border-radius: 50%;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+header .search-wrapper i:hover {
+  background-color: rgba(0, 0, 0, 0.08);
 }
 
 main {
