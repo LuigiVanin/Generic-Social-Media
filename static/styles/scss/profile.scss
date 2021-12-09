@@ -1,2 +1,24 @@
 @import "globals";
 @import "partials/header";
+
+// h1 {
+//     color: red;
+// }
+
+.pic_wrapper {
+    overflow: hidden;
+    height: $profile-size;
+    width: $profile-size;
+    border-radius: 50%;
+    border: 8px solid $title-color;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+}
+
+img {
+    height: calc(10px + #{$profile-size});
+    position: absolute;
+}

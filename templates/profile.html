@@ -5,5 +5,8 @@
 {% include 'partials/_header.html' %}
 
 <h1>Hello, {{data.bio}}</h1>
+<div class="pic_wrapper">
+    <img src="{{ data.profile_pic.url }}" alt="" />
+</div>
 
 {% endblock %}

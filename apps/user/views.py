@@ -57,13 +57,11 @@ def registration(request: HttpRequest) -> HttpResponse:
 @login_required(login_url='login')
 def profile(request: HttpRequest) -> HttpResponse:
     if request.method == "GET":
-            
-        print(request.user.is_authenticated)
-        
-        user = User.objects.filter(id=request.user.id).first()
+        user: User = User.objects.filter(id=request.user.id).first()
         ctx = {
             "data": user
         }
+        print(user.profile_pic.url)
         
         return render(
             request,
