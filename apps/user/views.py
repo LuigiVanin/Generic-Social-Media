@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render
 from django.http import HttpRequest, HttpResponse
 from django.contrib import auth
+from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from .forms import RegisterForm, LoginForm
 from .models import User
@@ -61,14 +62,35 @@ def profile(request: HttpRequest) -> HttpResponse:
         ctx = {
             "data": user
         }
-        if user.profile_pic == "":
-            print("AAAAAAAAAAAAAA")
-        
         return render(
             request,
             "profile.html",
             context=ctx,
             status=200
+        )
+        
+@login_required(login_url='login')
+def search_result(request: HttpRequest) -> HttpResponse:
+    
+    if request.method == "GET":
+        search_param = request.GET["search"]
+        query = (
+            Q(first_name__icontains=search_param) |
+            Q(username__icontains=search_param)
+        )
+        users: User.objects = User.objects.filter(query)
+        if users.exists():
+            users = users.all()
+        else:
+            users = None
+        ctx = {
+            "data": users
+        }
+        print(users)
+        return render(
+            request,
+            "search_result.html",
+            context=ctx
         )
 
 def logout(request: HttpRequest) -> HttpResponse:

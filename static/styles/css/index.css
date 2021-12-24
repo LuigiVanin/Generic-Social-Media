@@ -112,6 +112,7 @@ header .search-wrapper i {
   color: #ff6a30;
   position: absolute;
   left: -40px;
+  top: 10px;
   font-size: 1.35rem;
   cursor: pointer;
   padding: 7px;

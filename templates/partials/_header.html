@@ -4,10 +4,10 @@
 <header>
 
     {% if user.is_authenticated %}
-    <form action="#" method="get" class="search-wrapper">
-        <!-- <button type="submit"> -->
-        <i class="fas fa-search" class="search-button"></i>
-        <!-- </button> -->
+    <form action="{% url 'result' %}" method="get" class="search-wrapper">
+        <button type="submit">
+            <i class="fas fa-search" class="search-button"></i>
+        </button>
         <input type="search" name="search" id="search" placeholder="Busca...">
     </form>
     {% endif %}

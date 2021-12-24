@@ -6,28 +6,54 @@
 
 <main>
     <div class="wrapper">
-        <div class="row1">
-            <div class="pic_wrapper">
-                {% if data.profile_pic != "" %}
-                <img src="{{ data.profile_pic.url }}" alt="" />
-                {% endif %}
-            </div>
-            <div class="refresh">
-                <i class="fas fa-redo refresh__icon"></i>
+        <div class="row">
+            <div class="pic__wrapper">
+                <div class="pic">
+                    {% if data.profile_pic != "" %}
+                    <img src="{{ data.profile_pic.url }}" alt="" />
+                    {% else %}
+                    <img src="{% static 'assets/default.png' %}" alt="" />
+                    {% endif %}
+                </div>
+                <div class="refresh">
+                    <i class="fas fa-redo refresh__icon"></i>
+                </div>
             </div>
 
-            <div class="row1__text">
+            <div class="row__text">
                 <h1> {{ data.username }} </h1>
-                <h3>Hello, {{data.bio}} </h3>
+                <p>Hello, {{data.bio}} </p>
             </div>
         </div>
 
-        {{ data.username }}
-        {{ data.gender }}
-        {{ data.first_name }}
-        {{ data.last_name }}
-        {{ data.email }}
-        {{ data.date_joined }}
+        <div class="row info-box">
+            <div class="info-box__header">
+                <p> User info </p><span> <i class="fas fa-chevron-up"></i> </span>
+            </div>
+            <div class="info-box__item">
+                <h3> <strong> full name: </strong> {{ data.first_name }} {{ data.last_name }}</h3>
+            </div>
+            <div class="info-box__item">
+                <h3> <strong> email: </strong> {{ data.email}}</h3>
+            </div>
+            <div class="info-box__item">
+
+                <h3> <strong> gender: </strong>
+                    {% if data.gender == "M" %}
+                    {{ "Male" }}
+                    {% elif data.gender == "F" %}
+                    {{"Female"}}
+                    {% else %}
+                    {{ "Não Binário" }}
+                    {% endif %}</h3>
+            </div>
+            <div class="info-box__item">
+                <h3 class="date"> joined {{ data.date_joined }}</h3>
+            </div>
+
+        </div>
+
+
     </div>
 </main>
 {% endblock %}
