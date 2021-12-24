@@ -61,7 +61,8 @@ def profile(request: HttpRequest) -> HttpResponse:
         ctx = {
             "data": user
         }
-        print(user.profile_pic.url)
+        if user.profile_pic == "":
+            print("AAAAAAAAAAAAAA")
         
         return render(
             request,

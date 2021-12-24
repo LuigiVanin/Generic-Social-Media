@@ -4,9 +4,30 @@
 
 {% include 'partials/_header.html' %}
 
-<h1>Hello, {{data.bio}}</h1>
-<div class="pic_wrapper">
-    <img src="{{ data.profile_pic.url }}" alt="" />
-</div>
+<main>
+    <div class="wrapper">
+        <div class="row1">
+            <div class="pic_wrapper">
+                {% if data.profile_pic != "" %}
+                <img src="{{ data.profile_pic.url }}" alt="" />
+                {% endif %}
+            </div>
+            <div class="refresh">
+                <i class="fas fa-redo refresh__icon"></i>
+            </div>
 
+            <div class="row1__text">
+                <h1> {{ data.username }} </h1>
+                <h3>Hello, {{data.bio}} </h3>
+            </div>
+        </div>
+
+        {{ data.username }}
+        {{ data.gender }}
+        {{ data.first_name }}
+        {{ data.last_name }}
+        {{ data.email }}
+        {{ data.date_joined }}
+    </div>
+</main>
 {% endblock %}
