@@ -1,0 +1,50 @@
+body {
+    min-height: 100vh;
+}
+
+.user {
+    box-sizing: border-box;
+    text-decoration: none;
+    color: black;
+    width: 600px;
+    background-color: hsl(0, 0%, 96%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 35px;
+    padding-inline: 25px;
+    padding-block: 15px;
+    border-radius: 10px;
+    transition: 0.3s;
+    box-shadow: 1px 2px 15px 1px rgba($color: #383838, $alpha: 0.14);
+
+    &:hover {
+        box-shadow: 2px 4px 15px 3px rgba($color: #383838, $alpha: 0.14);
+        transform: translate(1px, 1px);
+    }
+
+    &__img {
+        height: $mini-profile-size;
+        width: $mini-profile-size;
+        border: 5px solid $title-color;
+        border-radius: 50%;
+        background: black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+
+        .pic {
+            position: relative;
+            display: flex;
+            img {
+                width: calc(#{$mini-profile-size} + 9px);
+            }
+        }
+    }
+
+    h4 {
+        font-size: 1.1rem;
+    }
+}

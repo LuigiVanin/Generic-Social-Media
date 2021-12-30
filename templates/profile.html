@@ -15,9 +15,11 @@
                     <img src="{% static 'assets/default.png' %}" alt="" />
                     {% endif %}
                 </div>
+                {% if me %}
                 <div class="refresh">
                     <i class="fas fa-redo refresh__icon"></i>
                 </div>
+                {% endif %}
             </div>
 
             <div class="row__text">

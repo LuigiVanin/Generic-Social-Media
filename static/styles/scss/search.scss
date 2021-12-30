@@ -1,0 +1,24 @@
+@import "globals";
+@import "partials/header";
+
+i.fa-search {
+    transform: scale(-1, 1);
+}
+
+h1 {
+    text-align: center;
+    padding-top: 75px;
+    border-bottom: 10px;
+}
+
+.content {
+    min-height: calc(100vh - #{$header-h});
+    max-height: calc(100vh - #{$header-h});
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+    overflow-y: scroll;
+}
+
+@import "partials/user_box";

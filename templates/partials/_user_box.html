@@ -1,0 +1,17 @@
+{% load static %}
+
+<a class="user" href="{% url 'profile' item.username %}">
+    <div class="user__img">
+        <div class="pic">
+            {% if item.profile_pic != "" %}
+            <img src="{{ item.profile_pic.url }}" alt="" />
+            {% else %}
+            <img src="{% static 'assets/default.png' %}" alt="" />
+            {% endif %}
+        </div>
+    </div>
+    <div class="user__info">
+        <h4>{{item.username}}</h4>
+        <p>full name: {{item.first_name}} {{item.last_name}}</p>
+    </div>
+</a>

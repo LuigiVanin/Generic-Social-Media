@@ -5,6 +5,10 @@
   font-family: "Poppins", sans-serif;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 header {
   width: 100vw;
   height: 55px;
@@ -135,7 +139,7 @@ main {
 
 main .wrapper {
   position: relative;
-  padding-top: 20px;
+  padding-top: 40px;
   width: 70%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -207,11 +211,18 @@ main .wrapper {
   -webkit-box-shadow: -2px 2px 15px 2px rgba(0, 0, 0, 0.212);
           box-shadow: -2px 2px 15px 2px rgba(0, 0, 0, 0.212);
   cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .row .refresh__icon {
   color: white;
   position: absolute;
+}
+
+.row .refresh:hover {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
 }
 
 .row__text {
@@ -241,7 +252,7 @@ main .wrapper {
 }
 
 img {
-  height: calc(200px + 30px);
+  width: calc(200px + 30px);
   z-index: 0;
   position: absolute;
 }

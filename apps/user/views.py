@@ -1,3 +1,4 @@
+from functools import reduce
 from django.shortcuts import redirect, render
 from django.http import HttpRequest, HttpResponse
 from django.contrib import auth
@@ -9,7 +10,7 @@ from .models import User
 def login_reg(request: HttpRequest) -> HttpResponse:
     if request.method == 'GET':
         if request.user.is_authenticated:
-            return redirect('profile')
+            return redirect('profile', acc=request.user.username)
         
         login_form = LoginForm()
         register_form = RegisterForm()
@@ -34,7 +35,7 @@ def login_reg(request: HttpRequest) -> HttpResponse:
         
         if user is not None:
             auth.login(request, user)
-            return redirect('profile')
+            return redirect('profile', acc=request.user.username)
         else:
             return redirect('login')
     
@@ -42,7 +43,7 @@ def login_reg(request: HttpRequest) -> HttpResponse:
 def registration(request: HttpRequest) -> HttpResponse:
     if request.method == "POST":
         data = request.POST
-        if data["password"] == data["passwprd2"]:
+        if data["password"] == data["password2"]:
             user: User = User.objects.create_user(
                 username=data["username"],
                 first_name=data["first_name"],
@@ -55,12 +56,17 @@ def registration(request: HttpRequest) -> HttpResponse:
             user.save()
             return redirect('login')
 
+
 @login_required(login_url='login')
-def profile(request: HttpRequest) -> HttpResponse:
+def profile(request: HttpRequest, acc: str) -> HttpResponse:
     if request.method == "GET":
-        user: User = User.objects.filter(id=request.user.id).first()
+        my_acc: bool = False
+        user: User = User.objects.filter(username=acc).first()
+        if acc == request.user.username:
+            my_acc = True
         ctx = {
-            "data": user
+            "data": user,
+            "me": my_acc,
         }
         return render(
             request,
@@ -68,21 +74,29 @@ def profile(request: HttpRequest) -> HttpResponse:
             context=ctx,
             status=200
         )
+      
         
 @login_required(login_url='login')
 def search_result(request: HttpRequest) -> HttpResponse:
     
     if request.method == "GET":
         search_param = request.GET["search"]
-        query = (
-            Q(first_name__icontains=search_param) |
-            Q(username__icontains=search_param)
-        )
-        users: User.objects = User.objects.filter(query)
-        if users.exists():
-            users = users.all()
+        users: User = None
+        if search_param.strip() != "":
+            if search_param.strip() == "/all":
+                search_param=""
+            query = (
+                Q(first_name__icontains=search_param) |
+                Q(last_name__icontains=search_param) |
+                Q(username__icontains=search_param)
+            )
+            users: User.objects = User.objects.filter(query)
+            if users.exists():
+                users = users.all()
+            else:
+                users = None
         else:
-            users = None
+            return redirect('profile', acc=request.user.username)
         ctx = {
             "data": users
         }

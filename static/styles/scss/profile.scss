@@ -15,7 +15,7 @@ main {
 
     .wrapper {
         position: relative;
-        padding-top: 20px;
+        padding-top: 40px;
         width: 70%;
         display: flex;
         flex-direction: column;
@@ -63,11 +63,15 @@ main {
         /* offset-x | offset-y | blur-radius | spread-radius | color */
         box-shadow: -2px 2px 15px 2px rgba(0, 0, 0, 0.212);
         cursor: pointer;
+        transition: 0.3s;
 
         &__icon {
             color: white;
             position: absolute;
         }
+    }
+    .refresh:hover {
+        transform: scale(0.95);
     }
     &__text {
         display: flex;
@@ -88,7 +92,7 @@ main {
 }
 
 img {
-    height: calc(#{$profile-size} + 30px);
+    width: calc(#{$profile-size} + 30px);
     z-index: 0;
     position: absolute;
 }

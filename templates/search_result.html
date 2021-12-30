@@ -1,3 +1,19 @@
-{% for item in data %}
-{{ item.username }}
-{% endfor %}
+{% extends 'base/base_result.html' %}
+{% load static %}
+{% block content %}
+
+{% include 'partials/_header.html' %}
+
+<div class="content">
+
+    <h1> Resultados da busca... <i class="fas fa-search" class="search-button"></i> </h1>
+    {% if data is None %}
+    <p>Não encontramos nenhum usuários com essas letras :( . . .</p>
+    {% endif %}
+    {% for item in data %}
+    {% include 'partials/_user_box.html' %}
+    {% endfor %}
+
+</div>
+
+{% endblock %}

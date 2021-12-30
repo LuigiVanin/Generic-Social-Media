@@ -9,11 +9,6 @@ html {
   overflow-x: hidden;
 }
 
-body {
-  z-index: -10;
-  position: relative;
-}
-
 header {
   width: 100vw;
   height: 55px;
@@ -129,102 +124,20 @@ header .search-wrapper i:hover {
   background-color: rgba(0, 0, 0, 0.08);
 }
 
-main {
+i.fa-search {
+  -webkit-transform: scale(-1, 1);
+          transform: scale(-1, 1);
+}
+
+h1 {
+  text-align: center;
+  padding-top: 75px;
+  border-bottom: 10px;
+}
+
+.content {
   min-height: calc(100vh - 55px);
-  width: 100vw;
-  background-image: url("../../assets/banner.jpg");
-  background-position: center;
-  background-size: cover;
-  position: relative;
-  z-index: -2;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-main::after {
-  content: "";
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.2);
-  z-index: -1;
-}
-
-.box {
-  background: -webkit-gradient(linear, left top, right top, from(white), to(#f3f3f3));
-  background: linear-gradient(to right, white, #f3f3f3);
-  width: 380px;
-  height: 480px;
-  margin-top: 20px;
-  margin-bottom: 60px;
-  padding: 5px;
-  z-index: 1;
-  -webkit-box-shadow: 0px -1px 15px 5px rgba(0, 0, 0, 0.212);
-          box-shadow: 0px -1px 15px 5px rgba(0, 0, 0, 0.212);
-  position: relative;
-  overflow-x: hidden;
-  overflow-y: hidden;
-}
-
-.box__btn-box {
-  width: 250px;
-  margin: 35px auto;
-  position: relative;
-  -webkit-box-shadow: 0 0 20px 9px #ff61241f;
-          box-shadow: 0 0 20px 9px #ff61241f;
-  border-radius: 30px;
-}
-
-.box__toggle {
-  padding: 10px 30px;
-  cursor: pointer;
-  background-color: transparent;
-  border: 0;
-  outline: none;
-  position: relative;
-  font-weight: 550;
-  font-size: 1.1rem;
-  font-family: "Poppins", sans-serif;
-}
-
-.box #box__btn {
-  left: 0;
-  top: 0;
-  position: absolute;
-  width: 110px;
-  height: 100%;
-  background: -webkit-gradient(linear, left top, right top, from(#ff6a30), to(#ffad06));
-  background: linear-gradient(to right, #ff6a30, #ffad06);
-  border-radius: 30px;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-}
-
-.box #box__btn.register {
-  left: 116px;
-  width: 135px;
-}
-
-.box #box__btn.log-in {
-  left: 0px;
-  width: 110px;
-}
-
-.input-group {
-  top: 150px;
-  position: absolute;
-  width: 100%;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
+  max-height: calc(100vh - 55px);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -235,75 +148,79 @@ main::after {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  gap: 35px;
+  overflow-y: scroll;
 }
 
-.input-group h3 {
-  font-family: "Poppins", sans-serif;
-  margin-bottom: 10px;
-  font-weight: 500;
+body {
+  min-height: 100vh;
 }
 
-.input-group .input-field {
-  width: 80%;
-  padding: 10px 0;
-  margin: 5px 0;
-  border-inline: 0;
-  border-top: 0;
-  border-bottom: 1px solid #999;
-  outline: none;
-  background: transparent;
+.user {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-decoration: none;
+  color: black;
+  width: 600px;
+  background-color: whitesmoke;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 35px;
+  padding-inline: 25px;
+  padding-block: 15px;
+  border-radius: 10px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  -webkit-box-shadow: 1px 2px 15px 1px rgba(56, 56, 56, 0.14);
+          box-shadow: 1px 2px 15px 1px rgba(56, 56, 56, 0.14);
 }
 
-.input-group .submit-btn {
-  width: 60%;
-  padding: 12px 30px;
-  cursor: pointer;
-  display: block;
-  margin: auto;
-  background: -webkit-gradient(linear, left top, right top, from(#ff6a30), to(#ffad06));
-  background: linear-gradient(to right, #ff6a30, #ffad06);
-  border: 0;
-  outline: none;
-  border-radius: 30px;
-  font-weight: bold;
-  margin-block: 30px;
-  font-size: 18px;
+.user:hover {
+  -webkit-box-shadow: 2px 4px 15px 3px rgba(56, 56, 56, 0.14);
+          box-shadow: 2px 4px 15px 3px rgba(56, 56, 56, 0.14);
+  -webkit-transform: translate(1px, 1px);
+          transform: translate(1px, 1px);
 }
 
-.input-group .container {
+.user__img {
+  height: 70px;
+  width: 70px;
+  border: 5px solid #ff6a30;
+  border-radius: 50%;
+  background: black;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  overflow: hidden;
 }
 
-.input-group .container .checkbox {
-  margin: 15px 10px 15px 0;
+.user__img .pic {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
-.input-group .container span {
-  color: #777;
-  font-size: 12px;
-  bottom: 68px;
-  display: block;
-  line-height: 25px;
+.user__img .pic img {
+  width: calc(70px + 9px);
 }
 
-#login.main {
-  left: 0px;
+.user h4 {
+  font-size: 1.1rem;
 }
-
-#login.off {
-  left: -360px;
-}
-
-#register.main {
-  left: 0px;
-}
-
-#register.off {
-  left: 400px;
-}
-/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=search.css.map */

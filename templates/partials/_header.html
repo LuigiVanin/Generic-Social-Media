@@ -4,15 +4,19 @@
 <header>
 
     {% if user.is_authenticated %}
-    <form action="{% url 'result' %}" method="get" class="search-wrapper">
+    <form action="{% url 'result' %}    " method="get" class="search-wrapper">
         <button type="submit">
             <i class="fas fa-search" class="search-button"></i>
         </button>
-        <input type="search" name="search" id="search" placeholder="Busca...">
+        <input type="search" name="search" id="search" placeholder="Buscar user. . .">
     </form>
     {% endif %}
 
-    <a href="#" id="title">Login & Registration </a>
+    {% if user.is_authenticated %}
+    <a href="{% url 'profile' user.username%}" id="title">Login & Registration </a>
+    {% else %}
+    <a href="{% url 'login'%}" id="title">Login & Registration </a>
+    {% endif %}
 
     {% if user.is_authenticated %}
     <a class='item' href="{% url 'logout' %}">Log Out</a>
