@@ -12,6 +12,6 @@ class User(AbstractUser):
     profile_pic = models.ImageField(upload_to="photos/%d/%m/", blank=True)
     
 
-# class Friends(models.Model):
-#     owner = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
-#     friend = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
+class Friends(models.Model):
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, null=False, related_name='owner')
+    friend = models.ForeignKey(User, on_delete=models.CASCADE, null=False, related_name='friend')

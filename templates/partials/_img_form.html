@@ -1,0 +1,14 @@
+{% load static %}
+
+<div class="cover hidden">
+    <form action="{% url 'new_img' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="close">
+            <i class="fa fa-times"></i>
+        </div>
+        <div class="fields">
+            <input type="file" class="new-image" name="new_img" required>
+            <input class="submit-btn" type="submit" value="trocar">
+        </div>
+    </form>
+</div>

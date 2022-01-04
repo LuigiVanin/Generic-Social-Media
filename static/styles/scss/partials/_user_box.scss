@@ -19,8 +19,8 @@ body {
     box-shadow: 1px 2px 15px 1px rgba($color: #383838, $alpha: 0.14);
 
     &:hover {
-        box-shadow: 2px 4px 15px 3px rgba($color: #383838, $alpha: 0.14);
-        transform: translate(1px, 1px);
+        box-shadow: 2px 4px 15px 4px rgba($color: #2e2e2e, $alpha: 0.14);
+        // transform: translate(1px, 1px);
     }
 
     &__img {

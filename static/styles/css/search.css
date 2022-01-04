@@ -184,10 +184,8 @@ body {
 }
 
 .user:hover {
-  -webkit-box-shadow: 2px 4px 15px 3px rgba(56, 56, 56, 0.14);
-          box-shadow: 2px 4px 15px 3px rgba(56, 56, 56, 0.14);
-  -webkit-transform: translate(1px, 1px);
-          transform: translate(1px, 1px);
+  -webkit-box-shadow: 2px 4px 15px 4px rgba(46, 46, 46, 0.14);
+          box-shadow: 2px 4px 15px 4px rgba(46, 46, 46, 0.14);
 }
 
 .user__img {

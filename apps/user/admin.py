@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import User
+from .models import User, Friends
 from django.contrib.auth import admin as auth_admin
 from .forms import UserCreationForm, UserChangeForms
 
@@ -19,4 +19,12 @@ class UserAdmin(auth_admin.UserAdmin):
             )}
         ),
     )
+    
+class AdminFriends(admin.ModelAdmin):
+    list_display = (
+        "owner",
+        "friend"
+    )
+    
+admin.site.register(Friends, AdminFriends)
 

@@ -6,5 +6,6 @@ urlpatterns = [
     path("reg/", views.registration, name="reg"),
     path("logout/", views.logout, name="logout"),
     path("profile/<str:acc>/", views.profile, name="profile"),
-    path("result/", views.search_result, name="result")
+    path("result/", views.search_result, name="result"),
+    path("new_img/", views.new_img, name="new_img")
 ]

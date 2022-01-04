@@ -107,6 +107,17 @@ def search_result(request: HttpRequest) -> HttpResponse:
             context=ctx
         )
 
+
+@login_required(login_url='login')
+def new_img(request: HttpRequest) -> HttpResponse:
+    if request.method == "POST":
+        to_updt = request.FILES["new_img"]
+        user: User = User.objects.filter(username=request.user.username).first()
+        if to_updt is not None:
+            user.profile_pic = to_updt
+        user.save()
+        return redirect('profile', acc=request.user.username)
+
 def logout(request: HttpRequest) -> HttpResponse:
     if request.user.is_authenticated:
         auth.logout(request)
