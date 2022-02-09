@@ -41,8 +41,10 @@ header {
         font-weight: 500;
         font-size: 1rem;
         color: black;
+        text-align: end;
         position: relative;
         transition: 0.4s;
+        width: 200px;
     }
     a.item:hover {
         color: $title-color;
@@ -51,7 +53,7 @@ header {
 
     input#search {
         width: 130px;
-        position: absolute;
+        position: relative;
         font-size: 1.1rem;
         padding-block: 8px;
         padding-inline-start: 10px;

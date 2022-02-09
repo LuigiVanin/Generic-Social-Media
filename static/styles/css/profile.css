@@ -63,9 +63,11 @@ header a.item {
   font-weight: 500;
   font-size: 1rem;
   color: black;
+  text-align: end;
   position: relative;
   -webkit-transition: 0.4s;
   transition: 0.4s;
+  width: 200px;
 }
 
 header a.item:hover {
@@ -76,7 +78,7 @@ header a.item:hover {
 
 header input#search {
   width: 130px;
-  position: absolute;
+  position: relative;
   font-size: 1.1rem;
   padding-block: 8px;
   -webkit-padding-start: 10px;
