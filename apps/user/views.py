@@ -1,11 +1,11 @@
-from functools import reduce
+from pydoc import doc
 from django.shortcuts import redirect, render
 from django.http import HttpRequest, HttpResponse
 from django.contrib import auth
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from .forms import RegisterForm, LoginForm
-from .models import User
+from .models import Friends, User
 
 def login_reg(request: HttpRequest) -> HttpResponse:
     if request.method == 'GET':
@@ -60,14 +60,19 @@ def registration(request: HttpRequest) -> HttpResponse:
 @login_required(login_url='login')
 def profile(request: HttpRequest, acc: str) -> HttpResponse:
     if request.method == "GET":
+        
         my_acc: bool = False
         user: User = User.objects.filter(username=acc).first()
+        friends: Friends = Friends.objects.filter(owner=request.user.id)
+        friends = [i.friend for i in friends]
         if acc == request.user.username:
             my_acc = True
         ctx = {
             "data": user,
             "me": my_acc,
+            "friends": friends,
         }
+        print(user in friends)
         return render(
             request,
             "profile.html",
@@ -75,7 +80,45 @@ def profile(request: HttpRequest, acc: str) -> HttpResponse:
             status=200
         )
       
+   
+@login_required(login_url='login')    
+def make_friend(request: HttpRequest, friend):
+    if request.method == "GET":
+        friend = User.objects.filter(username=friend).first()
+        if friend is None:
+            return redirect('profile', acc=request.user.username)
         
+        user = User.objects.filter(username=request.user.username).first()
+        friendship = Friends.objects.create(owner=user,
+                                            friend=friend)
+        friendship.save()
+        return redirect('profile', acc=friend.username)       
+ 
+ 
+@login_required(login_url='login')
+def remove_friend(request: HttpRequest, friend):
+    if request.method == "GET":
+        query = (Q(owner=request.user.id) & 
+                 Q(friend=User.objects.filter(username=friend).first().id))
+        friend=Friends.objects.filter(query).first()
+        friend.delete()
+        return redirect('profile', acc=friend.friend.username) 
+    
+    
+def show_all_friends(request: HttpRequest):
+    if request.method == "GET":
+        friends = Friends.objects.filter(owner=request.user.id).all()
+        friends = [i.friend for i in friends]
+        ctx = {
+            "data":friends,
+            "friends": friends,
+        }
+        return render(request,
+            "search_result.html",
+            context=ctx
+        )
+
+
 @login_required(login_url='login')
 def search_result(request: HttpRequest) -> HttpResponse:
     
@@ -97,10 +140,13 @@ def search_result(request: HttpRequest) -> HttpResponse:
                 users = None
         else:
             return redirect('profile', acc=request.user.username)
+        user_owner = Friends.objects.filter(owner=request.user.id).all()
+        friends = [i.friend for i in user_owner]
+        print(friends)
         ctx = {
-            "data": users
+            "data": users,
+            "friends": friends
         }
-        print(users)
         return render(
             request,
             "search_result.html",

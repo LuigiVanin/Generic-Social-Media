@@ -16,7 +16,6 @@ class UserCreationForm(UserCreationForm):
         
 class RegisterForm(ModelForm):
     
-    
     class Meta:
         model = User
         fields = (

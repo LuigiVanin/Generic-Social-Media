@@ -18,15 +18,23 @@
                     {% endif %}
                 </div>
                 {% if me %}
-                <div class="refresh">
-                    <i class="fas fa-redo refresh__icon"></i>
+                <div class="float-btn refresh">
+                    <i class="fas fa-redo float-btn__icon"></i>
                 </div>
+                {% elif not data in friends %}
+                <a class="float-btn invite" href="{% url 'make_friend' data.username %}">
+                    <i class="fas fa-plus float-btn__icon"></i>
+                </a>
+                {% else %}
+                <a class="float-btn friend" href="{% url 'remove_friend' data.username %}">
+                    <i class="fas fa-times float-btn__icon"></i>
+                </a>
                 {% endif %}
             </div>
 
             <div class="row__text">
                 <h1> {{ data.username }} </h1>
-                <p>Hello, {{data.bio}} </p>
+                <p>{{data.bio}} </p>
             </div>
         </div>
 
@@ -56,7 +64,9 @@
             </div>
 
         </div>
-
+        <a class="float-btn friends" href="{% url 'show_friends' %}">
+            <i class="fa fa-user-friends"></i>
+        </a>
 
     </div>
 </main>

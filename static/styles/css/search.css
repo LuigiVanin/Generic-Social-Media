@@ -5,6 +5,10 @@
   font-family: "Poppins", sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
 html {
   overflow-x: hidden;
 }
@@ -67,7 +71,7 @@ header a.item {
   position: relative;
   -webkit-transition: 0.4s;
   transition: 0.4s;
-  width: 200px;
+  width: 120px;
 }
 
 header a.item:hover {
@@ -183,6 +187,7 @@ body {
   transition: 0.3s;
   -webkit-box-shadow: 1px 2px 15px 1px rgba(56, 56, 56, 0.14);
           box-shadow: 1px 2px 15px 1px rgba(56, 56, 56, 0.14);
+  z-index: 10;
 }
 
 .user:hover {
@@ -222,5 +227,26 @@ body {
 
 .user h4 {
   font-size: 1.1rem;
+}
+
+.user p.btn {
+  width: 115px;
+  padding-block: 7px;
+  color: #464646;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 4px;
+  margin-left: auto;
+}
+
+.user p.friend {
+  background: #50fa5e;
+  -webkit-box-shadow: 1px 1px 15px 3px rgba(56, 56, 56, 0.18);
+          box-shadow: 1px 1px 15px 3px rgba(56, 56, 56, 0.18);
+}
+
+.user p.invite {
+  background: #fc776d;
 }
 /*# sourceMappingURL=search.css.map */

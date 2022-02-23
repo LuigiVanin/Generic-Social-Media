@@ -46,32 +46,20 @@ main {
     justify-content: space-around;
     // gap: 10%;
 
-    .refresh {
-        position: absolute;
-        z-index: 2;
-        right: 0px;
-        bottom: 0px;
-        height: 60px;
-        width: 60px;
-        background: $gradient-right;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.5rem;
-        /* offset-x | offset-y | blur-radius | spread-radius | color */
-        box-shadow: -2px 2px 15px 2px rgba(0, 0, 0, 0.212);
-        cursor: pointer;
-        transition: 0.3s;
+    @import "./partials/float_btn";
 
-        &__icon {
-            color: white;
-            position: absolute;
-        }
+    .refresh {
+        background: $gradient-right;
     }
-    .refresh:hover {
-        transform: scale(0.95);
+
+    .invite {
+        background: rgb(80, 250, 94);
     }
+
+    .friend {
+        background: rgb(252, 119, 109);
+    }
+
     &__text {
         display: flex;
         flex-direction: column;
@@ -166,4 +154,17 @@ img {
 
 .info-box.hidden::after {
     height: calc(100% - 61px);
+}
+
+@import "./partials/float_btn";
+
+.friends {
+    background: $gradient-right;
+    position: fixed;
+    left: calc(50vw + 30vw);
+    bottom: 20px;
+
+    i {
+        color: white;
+    }
 }

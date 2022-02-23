@@ -11,7 +11,14 @@
     <p>Não encontramos nenhum usuários com essas letras :( . . .</p>
     {% endif %}
     {% for item in data %}
+    {% if item in friends %}
     {% include 'partials/_user_box.html' %}
+    {% endif %}
+    {% endfor %}
+    {% for item in data %}
+    {% if not item in friends and item.username != user.username%}
+    {% include 'partials/_user_box.html' %}
+    {% endif %}
     {% endfor %}
 
 </div>

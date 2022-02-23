@@ -5,6 +5,10 @@
   font-family: "Poppins", sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
 html {
   overflow-x: hidden;
 }
@@ -67,7 +71,7 @@ header a.item {
   position: relative;
   -webkit-transition: 0.4s;
   transition: 0.4s;
-  width: 200px;
+  width: 120px;
 }
 
 header a.item:hover {
@@ -285,15 +289,13 @@ main .wrapper {
       justify-content: space-around;
 }
 
-.row .refresh {
+.row .float-btn {
   position: absolute;
   z-index: 2;
   right: 0px;
   bottom: 0px;
   height: 60px;
   width: 60px;
-  background: -webkit-gradient(linear, left top, right top, from(#ff6a30), to(#ffad06));
-  background: linear-gradient(to right, #ff6a30, #ffad06);
   border-radius: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -313,14 +315,27 @@ main .wrapper {
   transition: 0.3s;
 }
 
-.row .refresh__icon {
+.row .float-btn__icon {
   color: white;
   position: absolute;
 }
 
-.row .refresh:hover {
+.row .float-btn:hover {
   -webkit-transform: scale(0.95);
           transform: scale(0.95);
+}
+
+.row .refresh {
+  background: -webkit-gradient(linear, left top, right top, from(#ff6a30), to(#ffad06));
+  background: linear-gradient(to right, #ff6a30, #ffad06);
+}
+
+.row .invite {
+  background: #50fa5e;
+}
+
+.row .friend {
+  background: #fc776d;
 }
 
 .row__text {
@@ -445,5 +460,53 @@ img {
 
 .info-box.hidden::after {
   height: calc(100% - 61px);
+}
+
+.float-btn {
+  position: absolute;
+  z-index: 2;
+  right: 0px;
+  bottom: 0px;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 1.5rem;
+  /* offset-x | offset-y | blur-radius | spread-radius | color */
+  -webkit-box-shadow: -2px 2px 15px 2px rgba(0, 0, 0, 0.212);
+          box-shadow: -2px 2px 15px 2px rgba(0, 0, 0, 0.212);
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.float-btn__icon {
+  color: white;
+  position: absolute;
+}
+
+.float-btn:hover {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+}
+
+.friends {
+  background: -webkit-gradient(linear, left top, right top, from(#ff6a30), to(#ffad06));
+  background: linear-gradient(to right, #ff6a30, #ffad06);
+  position: fixed;
+  left: calc(50vw + 30vw);
+  bottom: 20px;
+}
+
+.friends i {
+  color: white;
 }
 /*# sourceMappingURL=profile.css.map */

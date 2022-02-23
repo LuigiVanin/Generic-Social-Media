@@ -5,6 +5,10 @@
   font-family: "Poppins", sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
 html {
   overflow-x: hidden;
 }
@@ -72,7 +76,7 @@ header a.item {
   position: relative;
   -webkit-transition: 0.4s;
   transition: 0.4s;
-  width: 200px;
+  width: 120px;
 }
 
 header a.item:hover {
