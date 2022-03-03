@@ -2,3 +2,7 @@ __pycacahe__/
 venv/
 db.sqlite3
 .vscode/
+
+media/
+
+apps/user/tests.py
